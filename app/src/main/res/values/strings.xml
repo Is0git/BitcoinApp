@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Bitcoin</string>
+    <string name="home">Home</string>
+    <string name="about">About</string>
+    <string name="bitcoin">Bitcoin</string>
+    <string name="refresh">refresh</string>
+    <string name="calculator">calculator</string>
+</resources>

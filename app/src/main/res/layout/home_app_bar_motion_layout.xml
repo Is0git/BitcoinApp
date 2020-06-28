@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/home_app_bar_background_gradient"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeText"
+        style="@style/TextAppearance.MaterialComponents.Headline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/home"
+        android:alpha="0.5"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:textAllCaps="true" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/chartName"
+        style="@style/TextAppearance.MaterialComponents.Headline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/bitcoin"
+        android:textColor="?colorSurface"
+        app:layout_constraintStart_toStartOf="@+id/homeText"
+        app:layout_constraintTop_toBottomOf="@id/homeText"
+        app:textAllCaps="true" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/timeUpdated"
+        style="@style/TextAppearance.MaterialComponents.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Last updated: 5 minutes ago"
+        android:textColor="?colorAccent"
+        app:layout_constraintStart_toStartOf="@+id/chartName"
+        app:layout_constraintTop_toBottomOf="@id/chartName" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/refreshButton"
+        style="@style/homeButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/refresh"
+        app:icon="@drawable/ic_refresh"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/timeUpdated"
+        app:layout_constraintTop_toBottomOf="@id/timeUpdated" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calculatorButton"
+        style="@style/inverseHomeButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="@string/calculator"
+        android:outlineProvider="none"
+        app:icon="@drawable/ic_bitcoin"
+        app:layout_constraintBottom_toBottomOf="@+id/refreshButton"
+        app:layout_constraintStart_toEndOf="@id/refreshButton"
+        app:layout_constraintTop_toTopOf="@+id/refreshButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

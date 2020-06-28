@@ -1,0 +1,31 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowFullscreen">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="bottomNavStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+    </style>
+    <style name="homeButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">20dp</item>
+        <item name="android:textColor">?colorPrimary</item>
+        <item name="android:textSize">10sp</item>
+        <item name="backgroundTint">?colorSurface</item>
+        <item name="iconTint">?colorPrimary</item>
+    </style>
+
+    <style name="inverseHomeButtonStyle" parent="homeButtonStyle">
+        <item name="android:textColor">?colorSurface</item>
+        <item name="backgroundTint">?colorPrimary</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">?colorSurface</item>
+        <item name="iconTint">?colorSurface</item>
+    </style>
+
+</resources>

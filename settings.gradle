@@ -1,0 +1,3 @@
+rootProject.name='Bitcoin'
+include ':app'
+include ':bitCoinExchangeCalculator'
