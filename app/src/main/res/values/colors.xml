@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#4c56c0</color>
-    <color name="colorPrimaryDark">#303AA1</color>
+    <color name="colorPrimaryDark">#5762D3</color>
     <color name="colorAccent">#7ec19a</color>
+    <color name="colorSecondary">#FF8A3C</color>
+    <color name="colorSecondaryVariant">#8c92d6</color>
+    <color name="colorAppBarTextShadow">#333B9E</color>
 
 </resources>

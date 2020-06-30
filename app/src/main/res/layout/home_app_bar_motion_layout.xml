@@ -1,45 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/motion_app_bar"
     android:layout_width="match_parent"
-    android:background="@drawable/home_app_bar_background_gradient"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@drawable/home_app_bar_background_gradient"
+    app:layoutDescription="@xml/home_app_bar_motion_layout_scene"
+    app:layout_scrollFlags="scroll|enterAlways">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/homeText"
-        style="@style/TextAppearance.MaterialComponents.Headline5"
+    <View
+        android:id="@+id/calculatorBackground"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="?colorSurface" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/backText"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/home"
-        android:alpha="0.5"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:enabled="false"
+        android:text="@string/hide"
+        android:textColor="@color/colorSecondary"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:textAllCaps="true" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/chartName"
-        style="@style/TextAppearance.MaterialComponents.Headline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/fjalla"
         android:text="@string/bitcoin"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="5"
+        android:shadowColor="@color/colorAppBarTextShadow"
         android:textColor="?colorSurface"
+        android:textSize="64sp"
         app:layout_constraintStart_toStartOf="@+id/homeText"
         app:layout_constraintTop_toBottomOf="@id/homeText"
         app:textAllCaps="true" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/timeUpdated"
+        android:id="@+id/lastUpdatedRaw"
         style="@style/TextAppearance.MaterialComponents.Caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="Last updated: 5 minutes ago"
-        android:textColor="?colorAccent"
+        android:text="@string/update_time_null"
+        android:textColor="@color/colorSecondaryVariant"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/timeUpdated"
+        app:layout_constraintTop_toBottomOf="@+id/timeUpdated"
+        app:textAllCaps="true" />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/timeUpdated"
+        style="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/last_updated_unknown"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="5"
+        android:shadowColor="@color/colorAppBarTextShadow"
+        android:textColor="?colorSecondary"
         app:layout_constraintStart_toStartOf="@+id/chartName"
         app:layout_constraintTop_toBottomOf="@id/chartName" />
 
@@ -48,13 +81,39 @@
         style="@style/homeButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/refresh"
         app:icon="@drawable/ic_refresh"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/timeUpdated"
-        app:layout_constraintTop_toBottomOf="@id/timeUpdated" />
+        app:layout_constraintTop_toBottomOf="@+id/lastUpdatedRaw"
+        app:rippleColor="@color/colorPrimary" />
+
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/infoButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_info"
+        app:altSrc="@drawable/ic_info2"
+        app:layout_constraintTop_toTopOf="@id/homeText"
+        app:layout_constraintBottom_toBottomOf="@id/homeText"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/exchangeButton"
+        style="@style/exchangeButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:enabled="false"
+        android:text="@string/exchange"
+        app:layout_constraintStart_toStartOf="@id/bitcoinTextField"
+        app:layout_constraintTop_toBottomOf="@id/currencyTextField"
+        app:rippleColor="@color/colorPrimary" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/calculatorButton"
@@ -63,11 +122,104 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:text="@string/calculator"
+        android:enabled="true"
         android:outlineProvider="none"
+        android:text="@string/calculator"
         app:icon="@drawable/ic_bitcoin"
         app:layout_constraintBottom_toBottomOf="@+id/refreshButton"
         app:layout_constraintStart_toEndOf="@id/refreshButton"
         app:layout_constraintTop_toTopOf="@+id/refreshButton" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/bitcoinTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:enabled="false"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="@string/bitcoin_value"
+        app:endIconMode="custom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/calculatorText"
+        app:layout_constraintTop_toBottomOf="@id/backText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/calculatorText"
+        style="@style/TextAppearance.MaterialComponents.Headline5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:singleLine="true"
+        android:text="@string/calculator"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/backText"
+        app:layout_constraintEnd_toStartOf="@+id/backText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/backText"
+        app:textAllCaps="true" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/currencyTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:enabled="false"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="@string/value"
+        app:endIconDrawable="@drawable/ic_money"
+        app:endIconMode="custom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/bitcoinTextField"
+        app:layout_constraintTop_toBottomOf="@id/swapIcon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:inputType="numberDecimal" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/homeText"
+        style="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/home"
+        android:textColor="@color/colorSecondaryVariant"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/swapIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_swap"
+        app:layout_constraintTop_toBottomOf="@id/bitcoinTextField" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

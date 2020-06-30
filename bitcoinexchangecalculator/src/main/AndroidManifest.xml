@@ -1,2 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.is0git.bitcoinexchangecalculator" />
+<manifest package="com.is0git.bitcoinexchangecalculator" />

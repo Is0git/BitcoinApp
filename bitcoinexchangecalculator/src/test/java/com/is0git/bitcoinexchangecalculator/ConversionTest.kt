@@ -1,17 +1,14 @@
 package com.is0git.bitcoinexchangecalculator
 
 import android.util.Log
-import com.is0git.bitcoinexchangecalculator.data.BitcoinConversionResult
 import com.is0git.bitcoinexchangecalculator.data.BitcoinCurrency
 import com.is0git.bitcoinexchangecalculator.data.ConversionResult
 import com.is0git.bitcoinexchangecalculator.exchange_calculator.BitcoinExchangeCalculator
 import com.is0git.bitcoinexchangecalculator.exchange_calculator.EXCHANGE_CALCULATOR_TAG
 import com.is0git.bitcoinexchangecalculator.listeners.ExchangeListener
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 
 class ConversionTest {
@@ -23,9 +20,9 @@ class ConversionTest {
               Log.d(EXCHANGE_CALCULATOR_TAG, "message: $throwable")
             }
 
-            override fun onExchangeComplete(currencyData: ConversionResult<BitcoinCurrency>) {
-                currencyResult = currencyData
-                Log.d(EXCHANGE_CALCULATOR_TAG, "completed: ${currencyData.convertedResult}")
+            override fun onExchangeComplete(conversionResult: ConversionResult<BitcoinCurrency>) {
+                currencyResult = conversionResult
+                Log.d(EXCHANGE_CALCULATOR_TAG, "completed: ${conversionResult.convertedResult}")
             }
 
         }

@@ -1,7 +1,7 @@
 package com.is0git.bitcoinexchangecalculator.converter.exchange_converters
 
-import com.is0git.bitcoinexchangecalculator.data.Currency
 import com.is0git.bitcoinexchangecalculator.data.ConversionResult
+import com.is0git.bitcoinexchangecalculator.data.Currency
 
 interface ExchangeConverter<T : ConversionResult<out Currency>> {
     /**

@@ -3,6 +3,7 @@ package com.is0git.bitcoinexchangecalculator.exchange_calculator
 import android.util.Log
 import com.is0git.bitcoinexchangecalculator.converter.converter_manager.ConverterManager
 import com.is0git.bitcoinexchangecalculator.currencies_storage.CurrencyStorage
+import com.is0git.bitcoinexchangecalculator.data.ConversionResult
 import com.is0git.bitcoinexchangecalculator.data.Currency
 import com.is0git.bitcoinexchangecalculator.listeners.ExchangeListener
 import kotlinx.coroutines.*
@@ -10,7 +11,6 @@ import kotlinx.coroutines.*
 const val EXCHANGE_CALCULATOR_TAG = "EXCHANGE_CALCULATOR_TAG"
 
 abstract class ExchangeCalculator<T : Currency> {
-
     var exchangeListener: ExchangeListener<T>? = null
     protected lateinit var currencyStorage: CurrencyStorage<T>
     protected lateinit var converterManager: ConverterManager<T>
@@ -19,9 +19,10 @@ abstract class ExchangeCalculator<T : Currency> {
         exchangeListener?.onExchangeFailed(throwable)
     }
 
+    @Throws(IllegalStateException::class)
     suspend fun convertFromBase(value: String, key: String) {
         coroutineScope {
-            val conversionJob  =  launch() {
+            val conversionJob = launch(conversionJobHandler) {
                 val currency = currencyStorage.getCurrency(key)
                 val conversionResult = converterManager.convertFromBase(value, currency)
                 withContext(Dispatchers.Main) { exchangeListener?.onExchangeComplete(conversionResult) }
@@ -30,11 +31,13 @@ abstract class ExchangeCalculator<T : Currency> {
         }
     }
 
+    @Throws(IllegalStateException::class)
     suspend fun convertToBase(value: String, key: String) {
         coroutineScope {
-          val conversionJob  =  launch() {
+            val conversionJob = launch(conversionJobHandler) {
                 val currency = currencyStorage.getCurrency(key)
                 val conversionResult = converterManager.convertToBase(value, currency)
+                conversionResult.flags = ConversionResult.FLAG_REVERSE_CONVERSION
                 withContext(Dispatchers.Main) { exchangeListener?.onExchangeComplete(conversionResult) }
             }
             onConversionCompleted(conversionJob)
@@ -49,5 +52,9 @@ abstract class ExchangeCalculator<T : Currency> {
 
     fun updateCurrency(currency: T) {
         currencyStorage.updateCurrency(currency)
+    }
+
+    fun updateCurrencies(newCurrenciesMap: Map<String, T>) {
+        currencyStorage.updateCurrencies(newCurrenciesMap)
     }
 }

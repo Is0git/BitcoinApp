@@ -2,11 +2,10 @@ package com.is0git.bitcoinexchangecalculator.converter.converter_manager
 
 import com.is0git.bitcoinexchangecalculator.converter.ConversionExceptionHandler
 import com.is0git.bitcoinexchangecalculator.converter.exchange_converters.ExchangeConverter
-import com.is0git.bitcoinexchangecalculator.data.Currency
 import com.is0git.bitcoinexchangecalculator.data.ConversionResult
+import com.is0git.bitcoinexchangecalculator.data.Currency
 
 abstract class ConverterManager<T : Currency> {
-
     protected lateinit var exchangeConverter: ExchangeConverter<out ConversionResult<T>>
     protected lateinit var reverseExchangeConverter: ExchangeConverter<out ConversionResult<T>>
     private val conversionExceptionHandler = ConversionExceptionHandler()

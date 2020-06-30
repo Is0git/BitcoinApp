@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/usd"
+        android:checkable="true"
+        android:title="@string/usd" />
+    <item
+        android:id="@+id/eur"
+        android:checkable="true"
+        android:title="@string/eur" />
+    <item
+        android:id="@+id/gbp"
+        android:checkable="true"
+        android:title="@string/gbp" />
+</menu>

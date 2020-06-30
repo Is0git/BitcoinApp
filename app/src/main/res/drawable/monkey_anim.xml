@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false" >
+    <item android:drawable="@drawable/monk_1" android:duration="60"/>
+    <item android:drawable="@drawable/monk_2" android:duration="60"/>
+    <item android:drawable="@drawable/monk_3" android:duration="60"/>
+    <item android:drawable="@drawable/monk_4" android:duration="60"/>
+    <item android:drawable="@drawable/monk_5" android:duration="60"/>
+    <item android:drawable="@drawable/monk_6" android:duration="60"/>
+    <item android:drawable="@drawable/monk_7" android:duration="60"/>
+    <item android:drawable="@drawable/monk_8" android:duration="60"/>
+    <item android:drawable="@drawable/monk_9" android:duration="60"/>
+    <item android:drawable="@drawable/monk_10" android:duration="60"/>
+    <item android:drawable="@drawable/monk_11" android:duration="60"/>
+    <item android:drawable="@drawable/monk_12" android:duration="60"/>
+    <item android:drawable="@drawable/monk_13" android:duration="60"/>
+    <item android:drawable="@drawable/monk_14" android:duration="60"/>
+    <item android:drawable="@drawable/monk_15" android:duration="60"/>
+    <item android:drawable="@drawable/monk_16" android:duration="60"/>
+</animation-list>
