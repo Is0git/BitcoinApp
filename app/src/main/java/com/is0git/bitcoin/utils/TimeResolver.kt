@@ -60,11 +60,11 @@ object TimeResolver {
         }
     }
 
-    fun getLastUpdatedTime(time: String?, context: Context): CharSequence? {
+    fun getLastUpdatedTime(time: String?, context: Context, locale: Locale): CharSequence? {
         return try {
             time ?: throw KotlinNullPointerException("time was not provided")
             val simpleDateFormatter =
-                SimpleDateFormat(RSS_FORMAT, Locale.getDefault())
+                SimpleDateFormat(RSS_FORMAT, locale)
             simpleDateFormatter.timeZone = TimeZone.getDefault()
             val date = simpleDateFormatter.parse(time)
             getTimeAgo(date.time, context)
@@ -74,8 +74,8 @@ object TimeResolver {
         }
     }
 
-    fun getFormattedTimeInCurrentTimeZone(format: String, time: String) : String? {
-       return SimpleDateFormat(format, Locale.getDefault()).run {
+    fun getFormattedTimeInCurrentTimeZone(format: String, time: String, locale: Locale) : String? {
+       return SimpleDateFormat(format, locale).run {
             val date = parse(time)
             timeZone = TimeZone.getDefault()
             date ?: return@run null

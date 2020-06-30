@@ -37,6 +37,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.*
 import javax.inject.Inject
 
 
@@ -248,7 +249,8 @@ class HomeFragment : Fragment(), MotionLayout.TransitionListener,
                         val rawTimeUpdated = async {
                             TimeResolver.getFormattedTimeInCurrentTimeZone(
                                 TimeResolver.RSS_FORMAT,
-                                it.bpi.time.updated
+                                it.bpi.time.updated,
+                                Locale.ENGLISH
                             )
                         }
                         val timeUpdatedAgo = async {
@@ -258,7 +260,8 @@ class HomeFragment : Fragment(), MotionLayout.TransitionListener,
                                 R.string.last_updated,
                                 TimeResolver.getLastUpdatedTime(
                                     it.bpi.time.updated,
-                                    requireContext()
+                                    requireContext(),
+                                    Locale.ENGLISH
                                 )
                             )
                         }
@@ -275,7 +278,7 @@ class HomeFragment : Fragment(), MotionLayout.TransitionListener,
                 }
             }
             fromBitcoinConversionLiveData.observe(viewLifecycleOwner) {
-                binding.homeAppBarLayout.currencyTextField.editText?.setText(it.convertedResult)
+                binding.homeAppBarLayout.currencyTextField.editText.setText(it.convertedResult)
             }
             toBitcoinConversionLiveData.observe(viewLifecycleOwner) {
                 binding.homeAppBarLayout.bitcoinTextField.editText?.setText(it.convertedResult)

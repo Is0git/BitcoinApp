@@ -9,6 +9,7 @@ import com.is0git.bitcoin.R
 import com.is0git.bitcoin.utils.HtmlParser
 import com.is0git.bitcoin.utils.TimeResolver
 import kotlinx.coroutines.*
+import java.util.*
 
 const val UPDATE_TIME_SERVICE_TAG = "TIME_SERVICE_TAG"
 
@@ -30,7 +31,7 @@ class UpdateTimeService : Service(){
                 if (time != null) {
                     val mTime = getString(
                         R.string.last_updated,
-                        TimeResolver.getLastUpdatedTime(time, applicationContext)
+                        TimeResolver.getLastUpdatedTime(time, applicationContext, Locale.ENGLISH)
                     )
                     val timeFromHtml = HtmlParser.getStringFromHtml(mTime, applicationContext)
                     withContext(Dispatchers.Main) { onTimeUpdateListener?.onTimeUpdate(timeFromHtml)}
