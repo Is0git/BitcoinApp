@@ -11,7 +11,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class AboutFragment : Fragment() {
-
     lateinit var binding: AboutFragmentLayoutBinding
 
     override fun onCreateView(

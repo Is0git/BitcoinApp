@@ -31,5 +31,5 @@ abstract class BpiDao {
     abstract fun getBpiWithDataLiveData(mChartName: String): LiveData<BpiWithData?>
 
     @Query("SELECT lastUpdatedMs FROM bpi_table WHERE chartName == :mChartName")
-    abstract suspend fun getLastUpdatedTime(mChartName: String) : Long?
+    abstract suspend fun getLastUpdatedTime(mChartName: String): Long?
 }

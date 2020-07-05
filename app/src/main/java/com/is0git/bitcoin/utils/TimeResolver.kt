@@ -15,6 +15,7 @@ object TimeResolver {
     private const val HOUR_MILLIS = 60 * MINUTE_MILLIS
     private const val DAY_MILLIS = 24 * HOUR_MILLIS
     private const val WEEK_MILLIS = 7 * DAY_MILLIS
+
     fun getTimeAgo(timeGiven: Long, context: Context): CharSequence? {
         var time = timeGiven
         if (time < 1000000000000L) { // if timestamp given in seconds, convert to millis
@@ -74,7 +75,7 @@ object TimeResolver {
         }
     }
 
-    fun getFormattedTimeInCurrentTimeZone(format: String, time: String, locale: Locale) : String? {
+    fun getFormattedTimeInCurrentTimeZone(format: String, time: String, locale: Locale): String? {
        return SimpleDateFormat(format, locale).run {
             val date = parse(time)
             timeZone = TimeZone.getDefault()
@@ -82,5 +83,4 @@ object TimeResolver {
             format(date)
         }
     }
-
 }

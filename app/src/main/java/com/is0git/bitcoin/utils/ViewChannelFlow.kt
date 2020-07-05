@@ -12,7 +12,7 @@ fun View.clicks(): Flow<View> = callbackFlow {
     awaitClose { this@clicks.setOnClickListener(null) }
 }
 
-fun EditText.addChannelTextChangedListener() : Flow<CharSequence?> = callbackFlow {
-    this@addChannelTextChangedListener.doOnTextChanged { text, start, before, count -> offer(text)}
+fun EditText.addChannelTextChangedListener(): Flow<CharSequence?> = callbackFlow {
+    this@addChannelTextChangedListener.doOnTextChanged { text, start, before, count -> offer(text) }
     awaitClose()
 }

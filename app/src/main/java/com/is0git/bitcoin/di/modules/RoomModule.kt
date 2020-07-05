@@ -14,17 +14,16 @@ import javax.inject.Singleton
 @Module
 @InstallIn(ApplicationComponent::class)
 object RoomModule {
-
     @Provides
     @Singleton
     @Synchronized
-    fun getMainDatabase(@ApplicationContext context: Context) : MainDatabase {
+    fun getMainDatabase(@ApplicationContext context: Context): MainDatabase {
        return Room.databaseBuilder(context, MainDatabase::class.java, "main_database").fallbackToDestructiveMigration().build()
     }
 
     @Provides
     @Singleton
-    fun bpiDao(mainDatabase: MainDatabase) : BpiDao {
+    fun bpiDao(mainDatabase: MainDatabase): BpiDao {
         return mainDatabase.getBpiDao()
     }
 }

@@ -8,5 +8,5 @@ import com.is0git.bitcoin.data.entities.RoomBpiData
 
 @Database(entities = [RoomBpi::class, RoomBpiData::class], version = 3, exportSchema = true)
 abstract class MainDatabase : RoomDatabase() {
-    abstract fun getBpiDao() : BpiDao
+    abstract fun getBpiDao(): BpiDao
 }

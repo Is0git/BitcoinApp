@@ -7,7 +7,7 @@ import android.text.Spanned
 import androidx.annotation.StringRes
 
 object HtmlParser {
-    fun getStringFromHtmlRes(@StringRes htmlStringRes: Int, context: Context) : Spanned {
+    fun getStringFromHtmlRes(@StringRes htmlStringRes: Int, context: Context): Spanned {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             Html.fromHtml(context.getString(htmlStringRes), Html.FROM_HTML_MODE_COMPACT)
         } else {
@@ -15,7 +15,7 @@ object HtmlParser {
         }
     }
 
-    fun getStringFromHtml( string: String, context: Context) : Spanned {
+    fun getStringFromHtml( string: String, context: Context): Spanned {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             Html.fromHtml(string, Html.FROM_HTML_MODE_COMPACT)
         } else {

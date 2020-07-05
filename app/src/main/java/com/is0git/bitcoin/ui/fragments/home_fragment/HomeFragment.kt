@@ -44,12 +44,12 @@ import javax.inject.Inject
 const val HOME_FRAGMENT_TAG = "HOME_FRAGMENT_TAG"
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(), MotionLayout.TransitionListener,
-    UpdateTimeService.OnTimeUpdateListener, PopupMenu.OnMenuItemClickListener {
-
+class HomeFragment : Fragment(),
+    MotionLayout.TransitionListener,
+    UpdateTimeService.OnTimeUpdateListener,
+    PopupMenu.OnMenuItemClickListener {
     lateinit var binding: HomeFragmentLayoutBinding
     val homeViewModel: HomeViewModel by viewModels()
-
     @Inject
     lateinit var bpiListAdapter: BpiListAdapter
     lateinit var homeMotionLayout: MotionLayout
@@ -151,7 +151,8 @@ class HomeFragment : Fragment(), MotionLayout.TransitionListener,
             backText.setOnClickListener {
                 homeMotionLayout.transitionToStart()
             }
-            refreshButton.clicks()
+            refreshButton
+                .clicks()
                 .buffer(Channel.RENDEZVOUS)
                 .onEach { homeViewModel.getBpi() }
                 .launchIn(lifecycleScope)
@@ -278,7 +279,7 @@ class HomeFragment : Fragment(), MotionLayout.TransitionListener,
                 }
             }
             fromBitcoinConversionLiveData.observe(viewLifecycleOwner) {
-                binding.homeAppBarLayout.currencyTextField.editText.setText(it.convertedResult)
+                binding.homeAppBarLayout.currencyTextField.editText?.setText(it.convertedResult)
             }
             toBitcoinConversionLiveData.observe(viewLifecycleOwner) {
                 binding.homeAppBarLayout.bitcoinTextField.editText?.setText(it.convertedResult)

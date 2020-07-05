@@ -75,7 +75,7 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
 
-    implementation project(":bitCoinExchangeCalculator")
+    implementation project(':bitcoinexchangecalculator')
 
     //Navigation component
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"

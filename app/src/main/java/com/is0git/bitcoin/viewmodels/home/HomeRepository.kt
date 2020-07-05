@@ -28,11 +28,6 @@ class HomeRepository @Inject constructor(
     private val bpiDao: BpiDao,
     private val bpiExchangeCalculator: BitcoinExchangeCalculator
 ) : ExchangeListener<BitcoinCurrency> {
-    companion object {
-        const val HOME_REPOSITORY_TAG = "HOME_REPOSITORY_TAG"
-        const val THROTTLE_TIME = 60 * 1000L
-    }
-
     init {
         bpiExchangeCalculator.exchangeListener = this
     }
@@ -43,8 +38,8 @@ class HomeRepository @Inject constructor(
     val bpiMediatorLiveData = MediatorLiveData<BpiWithData?>().apply {
         addSource(bpiLiveData) { bpiWithData ->
             if (bpiWithData == null) return@addSource
-            bpiExchangeCalculator.updateCurrencies(
-                bpiWithData.bpiData.map {
+            val currenciesMap = bpiWithData.bpiData
+                .map {
                     BitcoinCurrency(
                         it.code,
                         it.rate,
@@ -52,8 +47,9 @@ class HomeRepository @Inject constructor(
                         it.description,
                         it.symbol
                     )
-                }.associateBy { it.code!! }
-            )
+                }
+                .associateBy { it.code!! }
+            bpiExchangeCalculator.updateCurrencies(currenciesMap)
             this.postValue(bpiWithData)
         }
     }
@@ -86,7 +82,12 @@ class HomeRepository @Inject constructor(
     }
 
     private suspend fun mapBpiInDatabase(bpiResponse: BpiResponse) {
-        val mBpi = RoomBpi(bpiResponse.chartName ?: "", bpiResponse.disclaimer, bpiResponse.time, System.currentTimeMillis())
+        val mBpi = RoomBpi(
+            bpiResponse.chartName ?: "",
+            bpiResponse.disclaimer,
+            bpiResponse.time,
+            System.currentTimeMillis()
+        )
         val flow = flow {
             bpiResponse.bpi.let { bpiMap ->
                 for ((_, b) in bpiMap) {
@@ -95,16 +96,18 @@ class HomeRepository @Inject constructor(
             }
         }
         val roomBpiData = mutableListOf<RoomBpiData>()
-        flow.map {
-            RoomBpiData(
-                bpiResponse.chartName,
-                it.symbol,
-                it.rateFloat,
-                it.code!!,
-                it.rate,
-                it.description
-            )
-        }.collect { roomBpiData.add(it) }
+        flow
+            .map {
+                RoomBpiData(
+                    bpiResponse.chartName,
+                    it.symbol,
+                    it.rateFloat,
+                    it.code!!,
+                    it.rate,
+                    it.description
+                )
+            }
+            .collect { roomBpiData.add(it) }
         val bpiWitData = BpiWithData(mBpi, roomBpiData)
         bpiDao.insertBpiWithData(bpiWitData)
     }
@@ -127,5 +130,10 @@ class HomeRepository @Inject constructor(
         } else {
             fromBitcoinConversionLiveData.value = conversionResult
         }
+    }
+
+    companion object {
+        const val HOME_REPOSITORY_TAG = "HomeRepositoryTag"
+        const val THROTTLE_TIME = 60 * 1000L
     }
 }

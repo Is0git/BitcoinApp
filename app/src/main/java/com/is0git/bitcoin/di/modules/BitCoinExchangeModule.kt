@@ -9,8 +9,7 @@ import dagger.hilt.android.components.ActivityRetainedComponent
 @Module
 @InstallIn(ActivityRetainedComponent::class)
 object BitCoinExchangeModule {
-
     @Provides
     @JvmStatic
-    fun getBitCoinExchanger() : BitcoinExchangeCalculator = BitcoinExchangeCalculator()
+    fun getBitCoinExchanger(): BitcoinExchangeCalculator = BitcoinExchangeCalculator()
 }

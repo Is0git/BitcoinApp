@@ -10,11 +10,11 @@ abstract class ConverterManager<T : Currency> {
     protected lateinit var reverseExchangeConverter: ExchangeConverter<out ConversionResult<T>>
     private val conversionExceptionHandler = ConversionExceptionHandler()
 
-    fun convertFromBase(valueFrom: String, currency: T) : ConversionResult<T> {
+    fun convertFromBase(valueFrom: String, currency: T): ConversionResult<T> {
         return exchangeConverter.convert(valueFrom, currency)
     }
 
-    fun convertToBase(valueFrom: String, currency: T) : ConversionResult<T> {
+    fun convertToBase(valueFrom: String, currency: T): ConversionResult<T> {
         return reverseExchangeConverter.convert(valueFrom, currency)
     }
     fun handleConversionException(throwable: Throwable) {

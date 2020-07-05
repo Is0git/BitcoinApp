@@ -6,22 +6,17 @@ import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.components.ActivityRetainedComponent
-import dagger.hilt.android.components.ApplicationComponent
-import dagger.hilt.android.components.FragmentComponent
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
-import javax.inject.Singleton
 
 @Module
 @InstallIn(ActivityRetainedComponent::class)
 object NetworkModule {
-
     private const val BASE_URL = "https://api.coindesk.com/"
 
     @Provides

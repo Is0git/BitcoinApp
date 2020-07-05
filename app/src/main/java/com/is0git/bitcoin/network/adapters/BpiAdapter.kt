@@ -9,7 +9,7 @@ import javax.inject.Inject
 @ActivityRetainedScoped
 class BpiAdapter @Inject constructor() {
     @FromJson
-    fun fromJson(bpiData: BpiData) : BitcoinCurrency {
+    fun fromJson(bpiData: BpiData): BitcoinCurrency {
         return BitcoinCurrency(bpiData.code, bpiData.rate, bpiData.rateFloat, bpiData.description, bpiData.symbol)
     }
 }

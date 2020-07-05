@@ -8,17 +8,6 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
 class HomeViewModel @ViewModelInject constructor(private val repo: HomeRepository, @Assisted var savedStateHandle: SavedStateHandle) : ViewModel() {
-    companion object{
-        //keys for bundle(restore after process kill)
-        const val SELECTED_CURRENCY_CODE = "SELECTED_CURRENCY_CODE"
-        const val MOTION_TRANSITION_ID = "MOTION_TRANSITION_ID"
-        const val FROM_BITCOIN_EDIT_TEXT = "FROM_BITCOIN_EDIT_TEXT"
-        const val TO_BITCOIN_EDIT_TEXT = "TO_BITCOIN_EDIT_TEXT"
-        const val IS_BITCOIN_EDIT_FOCUSED = "IS_BITCOIN_EDIT_FOCUSED"
-        const val IS_CURRENCY_EDIT_FOCUSED = "IS_CURRENCY_EDIT_FOCUSED"
-        const val HAS_BPI_LIST_ANIMATION_PLAYED = "HAS_BPI_LIST_ANIMATION_PLAYED"
-    }
-
     init {
         viewModelScope.launch {
             getBpi()
@@ -41,5 +30,16 @@ class HomeViewModel @ViewModelInject constructor(private val repo: HomeRepositor
 
     suspend fun convertToBitcoin(value: String, code: String) {
         repo.convertToBitcoin(value, code)
+    }
+
+    companion object{
+        // keys for bundle(restore after process kill)
+        const val SELECTED_CURRENCY_CODE = "SelectedCurrencyCode"
+        const val MOTION_TRANSITION_ID = "MotionTransitionId"
+        const val FROM_BITCOIN_EDIT_TEXT = "FromBitcoinEditText"
+        const val TO_BITCOIN_EDIT_TEXT = "ToBitcoinEditText"
+        const val IS_BITCOIN_EDIT_FOCUSED = "IsBitcoinEditFocused"
+        const val IS_CURRENCY_EDIT_FOCUSED = "IsCurrencyEditFocused"
+        const val HAS_BPI_LIST_ANIMATION_PLAYED = "HasBpiListAnimationPlayed"
     }
 }

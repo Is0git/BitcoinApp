@@ -12,7 +12,7 @@ class BitcoinExchangeCalculator : ExchangeCalculator<BitcoinCurrency>() {
     }
 
     /**
-     * @param code is currency unique identifier
+     * [code] is currency unique identifier
      */
     suspend fun convertFromBtc(value: String, code: String) {
         convertFromBase(value, code)

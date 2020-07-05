@@ -11,10 +11,8 @@ import com.is0git.bitcoin.utils.TimeResolver
 import kotlinx.coroutines.*
 import java.util.*
 
-const val UPDATE_TIME_SERVICE_TAG = "TIME_SERVICE_TAG"
 
 class UpdateTimeService : Service(){
-
     lateinit var updateTimeJob: Job
     var onTimeUpdateListener: OnTimeUpdateListener? = null
     var binder = UpdateServiceBinder()
@@ -57,3 +55,5 @@ class UpdateTimeService : Service(){
         fun onTimeUpdate(lastUpdated: CharSequence?)
     }
 }
+
+const val UPDATE_TIME_SERVICE_TAG = "TimeServiceTag"
