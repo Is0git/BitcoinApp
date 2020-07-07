@@ -2,7 +2,6 @@
 
 <h3> Libraries </h3>
 <p>
-<li>Kotlin</li>
 <li>Coroutines</li>
 <li>Hilt</li>
 <li>MVVM</li>
