@@ -1,11 +1,18 @@
 # BitcoinApp
 <h3>PREVIEW</h3>
 <p><a href="http://danielktx.com/images/bitcoin_app/bitcoin_video.mp4" type="video/mp4">DEMO VIDEO</a></p>
-<div
-<img height="500" src="http://danielktx.com/images/bitcoin_app/bitcoin_1.jpg" />
-<img height="500" src="http://danielktx.com/images/bitcoin_app/bitcoin_2.jpg" />
-<img height="500" src="http://danielktx.com/images/bitcoin_app/bitcoin_3.jpg" />
-<img height="500" src="http://danielktx.com/images/bitcoin_app/bitcoin_4.jpg" />
+<div>
+<div class="column">
+  <img height="400" src="http://danielktx.com/images/bitcoin_app/bitcoin_2.jpg" />
+  </div>
+<div class="column">
+  <img height="400" src="http://danielktx.com/images/bitcoin_app/bitcoin_1.jpg" />
+  </div>
+<div class="column">
+  <img height="400" src="http://danielktx.com/images/bitcoin_app/bitcoin_3.jpg" />
+<div class="column">
+  <img height="400" src="http://danielktx.com/images/bitcoin_app/bitcoin_4.jpg" />
+  </div>
 </div>
 <h3>Description</h3>
 <p>This app allows to lookup and convert live bitcoin values in USD, EUR, GBP. The app is scalable and maintainable. I've used mvvm architecture, S.O.L.I.D priciples, kotlin coding style. Furthermore, it has stunning and materialistic ui with beautiful curved animations. Also screen rotations and process death are handled using viewmodels and saveStates. Bitcoin values are periodically updated using a service and cached in persistent database(room) therefore the app supports offline mode. Most importantly, I've used best practises and most essential, newest tools in order to make application fast and clean. </p>
