@@ -1,13 +1,11 @@
 # BitcoinApp
 <h3>PREVIEW</h3>
-<p><a href="http://danielktx.com/images/bitcoin_app/bitcoin_video.mp4" type="video/mp4"><h2>DEMO VIDEO</h2></a></p>\
+<p><a href="http://danielktx.com/images/bitcoin_app/bitcoin_video.mp4" type="video/mp4"><h2>DEMO VIDEO</h2></a></p>
 <p float="left">
-   <img height="400" src="http://danielktx.com/images/bitcoin_app/bitcoin_2.jpg" />
-  <img height="400" src="http://danielktx.com/images/bitcoin_app/bitcoin_1.jpg" />
-    <img height="400" src="http://danielktx.com/images/bitcoin_app/bitcoin_3.jpg" />
-    <img height="400" src="http://danielktx.com/images/bitcoin_app/bitcoin_4.jpg" />
-
-
+   <img height="500" src="http://danielktx.com/images/bitcoin_app/bitcoin_2.jpg" />
+  <img height="500" src="http://danielktx.com/images/bitcoin_app/bitcoin_1.jpg" />
+    <img height="500" src="http://danielktx.com/images/bitcoin_app/bitcoin_3.jpg" />
+    <img height="500" src="http://danielktx.com/images/bitcoin_app/bitcoin_4.jpg" />
   </p>
 
 <h3>Description</h3>
