@@ -1,7 +1,7 @@
 # BitcoinApp
 <h3>PREVIEW</h3>
-<p><a href="http://danielktx.com/images/bitcoin_app/bitcoin_video.mp4" type="video/mp4">DEMO VIDEO</a></p>
-<div>
+<p><a href="http://danielktx.com/images/bitcoin_app/bitcoin_video.mp4" type="video/mp4"><h2>DEMO VIDEO</h2></a></p>
+<div class="row">
 <div class="column">
   <img height="400" src="http://danielktx.com/images/bitcoin_app/bitcoin_2.jpg" />
   </div>
