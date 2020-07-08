@@ -5,7 +5,6 @@
    <img height="500" src="http://danielktx.com/images/bitcoin_app/bitcoin_2.jpg" />
   <img height="500" src="http://danielktx.com/images/bitcoin_app/bitcoin_1.jpg" />
     <img height="500" src="http://danielktx.com/images/bitcoin_app/bitcoin_3.jpg" />
-    <img height="500" src="http://danielktx.com/images/bitcoin_app/bitcoin_4.jpg" />
   </p>
 
 <h3>Description</h3>
