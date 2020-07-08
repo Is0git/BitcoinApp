@@ -17,8 +17,8 @@
   <li>retrofit</li>
   <li>moshi</li>
   <li>OkHttpClient(adapters, moshi-kotlin-codegen)</li> 
-  <li>logging interceptor</li> 
-  <li>glide</li> kotlin extensions
+  <li>kotlin extensions</li> 
+  <li>glide</li>
   <li>activity and fragment extensions</li> 
   <li>and more...</li>
 </p>
