@@ -5,20 +5,20 @@
 <h3> Libraries </h3>
 <p>
   <li>Kotlin coroutines</li> 
-  <li>hilt</li>
-  <li>material design</li>
-  <li>motion-layout, lifecycle</li>
-  <li>viewmodel</li>
-  <li>navigation-component</li> 
-  <li>databinding</li> 
-  <li>room</li> 
-  <li>livedata</li> 
-  <li>services</li> 
-  <li>retrofit</li>
-  <li>moshi</li>
+  <li>Hilt</li>
+  <li>Material design</li>
+  <li>Motion-layout, lifecycle</li>
+  <li>Viewmodel</li>
+  <li>Navigation-component</li> 
+  <li>Databinding</li> 
+  <li>Room</li> 
+  <li>Livedata</li> 
+  <li>Services</li> 
+  <li>Retrofit</li>
+  <li>Moshi</li>
   <li>OkHttpClient(adapters, moshi-kotlin-codegen)</li> 
-  <li>kotlin extensions</li> 
-  <li>glide</li>
-  <li>activity and fragment extensions</li> 
-  <li>and more...</li>
+  <li>Kotlin extensions</li> 
+  <li>Glide</li>
+  <li>Activity and fragment extensions</li> 
+  <li>And more...</li>
 </p>
